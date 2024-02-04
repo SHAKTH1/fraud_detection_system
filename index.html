@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fraudDetectionApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Fraud Detection</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body ng-controller="fraudDetectionController">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Online Fraud Detection System</h2>
+        <form ng-submit="detectFraud()">
+            <div class="form-group">
+                <label for="step">Step:</label>
+                <input type="number" class="form-control" ng-model="formData.step" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" class="form-control" ng-model="formData.amount" required>
+            </div>
+            <div class="form-group">
+                <label for="oldbalanceOrg">Old Balance Origin:</label>
+                <input type="number" class="form-control" ng-model="formData.oldbalanceOrg" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">New Balance Origin:</label>
+                <input type="number" class="form-control" ng-model="formData.newbalanceOrig" required>
+            </div>
+            <div class="form-group">
+                <label for="oldbalanceDest">Old Balance Destination:</label>
+                <input type="number" class="form-control" ng-model="formData.oldbalanceDest" required>
+            </div>
+            <div class="form-group">
+                <label for="newbalancedest">New Balance Destination </label>
+                <input type="number" class="form-control" ng-model="formData.newbalancedest" required>
+            </div>
+            <div class="form-group">
+                <label for="isFlaggedFraud">Flagged:</label>
+                <input type="number" class="form-control" ng-model="formData.isFlaggedFraud" required>
+            </div>
+            <div class="form-group">
+                <label for="cashout">Cashout:</label>
+                <select class="form-control" ng-model="formData.cashout" required>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="debit">Debit:</label>
+                <select class="form-control" ng-model="formData.debit" required>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="payment">Payment:</label>
+                <select class="form-control" ng-model="formData.payment" required>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="transfer">Transfer:</label>
+                <select class="form-control" ng-model="formData.transfer" required>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Detect Fraud</button>
+            </div>
+           
+        </form>
+
+        <div class="mt-4" ng-show="predictionResult !== undefined">
+            <h4>Prediction Result:</h4>
+            <p>{{ predictionResult }}</p>
+        </div>
+        
+        
+    </div>
+
+    <!-- Include AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Include AngularJS controller -->
+    <script src="/static/script.js"></script>
+</body>
+</html>
